@@ -302,7 +302,7 @@ const Header = () => {
                   </li>
 
 
-                  <li>
+                  <li className="home">
                     <NavLink to="/aboutUs">About</NavLink>
                   </li>
 

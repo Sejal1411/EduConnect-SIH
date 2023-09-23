@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 
-const newsTitle = "Want Us To Email You About Latest Uploaded Projects?";
+const newsTitle = "Let Us know about Your Project Ideas! Connect to the Newsletter!!";
 const siteTitle = "Site Map";
 const useTitle = "Useful Links";
 const socialTitle = "Social Contact";

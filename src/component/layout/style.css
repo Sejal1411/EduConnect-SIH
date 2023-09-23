@@ -54,3 +54,9 @@
 .ant-modal{
   align-content: space-around;
 }
+
+@media (max-width: 768px) {
+  .login {
+      padding-left: 0px; /* Reduce padding on smaller screens */
+  }
+}

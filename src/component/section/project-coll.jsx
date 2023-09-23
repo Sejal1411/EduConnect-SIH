@@ -119,7 +119,7 @@ const Projects = () => {
                             <div className="col" key={i}>
                                 <div  className="course-item">
                                     <div className="course-inner" style={{height:'420px'}}>
-                                        <div className="course-thumb"style={{padding:'15px 20px'}} >
+                                        <div className="course-thumb"style={{padding:'5px 25px'}} >
                                             <img style={{height:"200px"}} src={`${val.imgUrl}`} alt={`${val.imgAlt}`} />
                                         </div>
                                         <div className="course-content" style={{padding:'5px 20px'}}>

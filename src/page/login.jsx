@@ -87,10 +87,10 @@ const LoginPage = () => {
                 <button className="d-block lab-btn" type="submit">
                   {isLoading ? (
                     <span>
-                      <Spin /> Logging In...
+                      <Spin /> Uploading...
                     </span>
                   ) : (
-                    <span>Log In</span>
+                    <span>Upload</span>
                   )}
                 </button>
               </div>

@@ -148,15 +148,17 @@ const AddProject = () => {
     }
 
     const formData = new FormData();
-    formData.append("pdf", file);
+    formData.append("file", file);
     formData.append("data", JSON.stringify(projectData));
     formData.append("cover", JSON.stringify(CoverPic));
     formData.append("info", JSON.stringify(info));
-
+    console.log("formData",formData);
     try {
       setIsLoading(true);
-      const response = await axios.post(`${server}project/new`, formData, {
+      console.log("log",formData.values);
+      const response = await axios.post(`${server}project/new`,formData, {
         withCredentials: true,
+        
       });
 
       if (response.status === 201) {

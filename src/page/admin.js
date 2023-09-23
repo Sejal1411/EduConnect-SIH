@@ -65,15 +65,15 @@ const Projects = ({ projects, setPage, setProject }) => {
                 <h2 className="text-2xl font-bold mb-4">
                   Projects uploaded by your college
                 </h2>
-                <div className=" flex items-center">
+                <div className="flex flex-wrap items-center">
                   {projects?.map((project) => {
                     return (
-                      <div className="p-4 bg-white border rounded-xl text-gray-800 space-y-2 mx-2 my-2">
-                        <div className="flex justify-between">
-                          <div className="text-gray-400 text-xs">
+                      <div className="p-4 w-[30%] h-96 bg-white border rounded-xl text-gray-800  mx-2 my-2">
+                        <div className="flex justify-between items-center">
+                          <div className="text-gray-400 text-[.6rem] flex flex-col">
                             {project?.Category}
                             <span
-                              className={`-ml-1 block py-1 px-2 text-black font-bold mt-1 rounded-lg text-center w-16 ${
+                              className={`-ml-1 block py-1  px-2 text-black font-bold  rounded-lg text-center my-2 w-16 ${
                                 project.Status === "pending"
                                   ? "bg-orange-400"
                                   : "bg-green-400"
@@ -82,7 +82,7 @@ const Projects = ({ projects, setPage, setProject }) => {
                               {project.Status}
                             </span>
                           </div>
-                          <div className="text-gray-400 text-xs">
+                          <div className="text-gray-400 text-xs -mt-4 text-[.6rem]">
                             {project?.AuthorName}
                           </div>
                         </div>
@@ -228,7 +228,7 @@ const Project = ({ project, projects, setProject, setPage, refetch }) => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl p-8 mb-5">
             <span
-              className={`-ml-1 block py-1 px-2 text-black font-bold mt-1 rounded-lg text-center w-16 ${
+              className={`-ml-1 block  px-2 text-black font-semibold mt-1 rounded-lg text-sm text-center w-20 ${
                 project.Status === "pending" ? "bg-orange-400" : "bg-green-400"
               }`}
             >
@@ -280,6 +280,15 @@ const Project = ({ project, projects, setProject, setPage, refetch }) => {
                           className="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-red-400 text-white ml-3 text-sm font-semibold transition"
                         >
                           {project?.Status === "public" ? "Delete" : "Reject"}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setOpenReject(true)}
+                          className="inline-flex items-center justify-center py-2 px-3 rounded-xl bg-yellow-600 text-white ml-3 text-sm font-semibold transition"
+                        >
+                          {
+                            "Plagiarism check with AI"
+                          }
                         </button>
                       </div>
                     </div>
@@ -362,7 +371,11 @@ const Admin = () => {
   const [project, setProject] = useState(null);
   const [logoutModal, setLogoutModal] = useState(false);
   const id = JSON.parse(localStorage.getItem("user"))._id;
-  const { data :college, isLoading,refetch } = useQuery(
+  const {
+    data: college,
+    isLoading,
+    refetch,
+  } = useQuery(
     ["college", id],
     async () => {
       try {
@@ -458,7 +471,18 @@ const Admin = () => {
         <header className="fixed right-0 top-0 left-60 bg-white py-3 px-4 h-16">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between">
-              <div className="text-lg">
+             
+              <div className="text-lg flex items-center">
+              <div className="h-12 w-12  border-2 rounded-full mr-3">
+              <img
+                className="object-cover w-full h-full rounded-full"
+                src={
+                  college?.Pic
+                    ? college?.Pic
+                    : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.japanpowered.com%2Fanime-articles%2Fanime-high-school&psig=AOvVaw0eRzmDPeRlg1oaddo_Zkwb&ust=1695465074897000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPC7ud2BvoEDFQAAAAAdAAAAABAH"
+                }
+              />
+            </div>
                 {college?.CollegeName.toUpperCase()}
               </div>
               <div>
@@ -604,7 +628,11 @@ const Admin = () => {
                             <div className="h-9 w-9" key={student?._id}>
                               <img
                                 className="object-cover w-full h-full rounded-full"
-                                src={student?.Pic}
+                                src={
+                                  student?.Pic
+                                    ? student?.Pic
+                                    : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.japanpowered.com%2Fanime-articles%2Fanime-high-school&psig=AOvVaw0eRzmDPeRlg1oaddo_Zkwb&ust=1695465074897000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPC7ud2BvoEDFQAAAAAdAAAAABAH"
+                                }
                               />
                             </div>
                           );
